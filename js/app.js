@@ -55,7 +55,7 @@ function playSound() {
 function highlightStart() {
   playSound()
   originalColor = $(currentBtn).css("background-color")
-  var newColor = tinycolor(originalColor).brighten(15)
+  let newColor = tinycolor(originalColor).brighten(15)
   $(currentBtn).css("background-color", newColor)
 }
 
@@ -67,8 +67,8 @@ function highlightStop() {
 }
 
 function checkTimelimit() {
-  var timeLimit = 750
-  var timer = setInterval(function () {
+  let timeLimit = 750
+  let timer = setInterval(function () {
     if (!currentBtn) {
       if (!timeLimit--) {
         clearInterval(timer)
@@ -224,8 +224,8 @@ $(document).ready(function () {
     currentSeries.push(currentBtn)
     highlightStart(currentBtn)
 
-    var timer = 250
-    var btnHold = setInterval(function () {
+    let timer = 250
+    let btnHold = setInterval(function () {
       // user holds button too long
       if (!timer) {
         btnDown = false
