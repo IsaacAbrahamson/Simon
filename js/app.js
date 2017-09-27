@@ -17,7 +17,7 @@ const context = new AudioContext()
 const note      = context.createOscillator()
 note.start(0) // reset note
 
-const delay = time => new Promise(resolve => setTimeout(resolve, time));
+const delay = time => new Promise(resolve => setTimeout(resolve, time))
 
 function toggleStrict() {
   if (!gameOn) return
@@ -27,11 +27,11 @@ function toggleStrict() {
 
 function switchUser() {
   if (simonTurn) {
-    simonTurn = false;
-    console.log('Your Turn');
+    simonTurn = false
+    console.log('Your Turn')
   } else {
-    simonTurn = true;
-    console.log("Simon's Turn");
+    simonTurn = true
+    console.log("Simon's Turn")
   }
 }
 
@@ -53,32 +53,32 @@ function playSound() {
 }
 
 function highlightStart() {
-  playSound();
-  originalColor = $(currentBtn).css("background-color");
-  var newColor = tinycolor(originalColor).brighten(15);
-  $(currentBtn).css("background-color", newColor);
+  playSound()
+  originalColor = $(currentBtn).css("background-color")
+  var newColor = tinycolor(originalColor).brighten(15)
+  $(currentBtn).css("background-color", newColor)
 }
 
 function highlightStop() {
-  note.disconnect();
-  $(currentBtn).css("background-color", originalColor);
-  currentBtn = null;
-  originalColor = '';
+  note.disconnect()
+  $(currentBtn).css("background-color", originalColor)
+  currentBtn = null
+  originalColor = ''
 }
 
 function checkTimelimit() {
-  var timeLimit = 750;
+  var timeLimit = 750
   var timer = setInterval(function () {
     if (!currentBtn) {
       if (!timeLimit--) {
-        clearInterval(timer);
-        gameOver(false);
-        return;
+        clearInterval(timer)
+        gameOver(false)
+        return
       }
     } else {
-      clearInterval(timer);
+      clearInterval(timer)
     }
-  }, 1);
+  }, 1)
 }
 
 // num paramater is for recursive calling. For normal function call it will de defaulted to 0
@@ -167,9 +167,9 @@ async function gameOver(win) {
 }
 
 const updateScore = () => {
-  series = simonSeries.length;
+  series = simonSeries.length
   if (series) {
-    $('#score h6').html(series);
+    $('#score h6').html(series)
   }
 }
 
@@ -217,38 +217,38 @@ $(document).ready(function () {
 
   $('.simon-btn').mousedown(function (e) {
     if (simonTurn || !gameOn || e.which == 3 || currentBtn) {
-      return;
+      return
     }
-    currentBtn = '#' + this.id;
-    btnDown = true;
-    currentSeries.push(currentBtn);
-    highlightStart(currentBtn);
+    currentBtn = '#' + this.id
+    btnDown = true
+    currentSeries.push(currentBtn)
+    highlightStart(currentBtn)
 
-    var timer = 250;
+    var timer = 250
     var btnHold = setInterval(function () {
       // user holds button too long
       if (!timer) {
-        btnDown = false;
-        clearInterval(btnHold);
-        highlightStop();
-        checkSeries();
-        timer = 400;
-        return;
+        btnDown = false
+        clearInterval(btnHold)
+        highlightStop()
+        checkSeries()
+        timer = 400
+        return
       }
       // user releases button
       if (!btnDown) {
-        clearInterval(btnHold);
-        highlightStop();
-        checkSeries();
-        timer = 400;
-        return;
+        clearInterval(btnHold)
+        highlightStop()
+        checkSeries()
+        timer = 400
+        return
       }
-      timer--;
-    }, 1);
+      timer--
+    }, 1)
   }).bind('mouseup mouseleave', function () {
     if (!simonTurn && gameOn && currentBtn) {
-      btnDown = false;
+      btnDown = false
     }
-  });
+  })
 
-});
+})
