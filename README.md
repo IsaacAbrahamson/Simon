@@ -1,2 +1,2 @@
 # Simon Says Game.
-View live at [http://simon.isaacabrahamson.com](simon.isaacabrahamson.com)
+View live at [simon.isaacabrahamson.com](http://simon.isaacabrahamson.com)
