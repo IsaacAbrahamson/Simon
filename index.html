@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Simon Says Game</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="scoreboard">
+      <div id="logo">Simon<span class="exponent">®</span></div>
+      <div id="menu">
+        <div class="score-box score-box-lrg">
+          <div id="score">
+            <h6 class="off">--</h6>
+          </div>
+        </div>
+        <div class="score-box">
+          <div class="middle center">
+            <div class="center light hidden"></div>
+            <button id="start" class="center menu-btn" onclick=""></button>
+            <div class="label">Start</div>
+          </div>
+        </div>
+        <div class="score-box">
+          <div class="middle center">
+            <div class="center light"></div>
+            <button id="strict" class="center menu-btn" onclick=""></button>
+            <div class="label">Strict</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="buttons">
+      <div class="simon-row">
+        <label class="simon-btn" id="green" onclick=""></label>
+        <label class="simon-btn" id="red" onclick=""></label>
+      </div>
+      <div class="simon-row">
+        <label class="simon-btn" id="blue" onclick=""></label>
+        <label class="simon-btn" id="yellow" onclick=""></label>
+      </div>
+    </div>
+  </div>
+
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
+  <script src="js/tinycolor.js"></script>
+  <script src="js/app.js"></script>
+</body>
+
+</html>
